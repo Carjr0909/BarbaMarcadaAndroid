@@ -1,0 +1,37 @@
+name: Gerar APK Android
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Verificar configuração do Firebase
+        run: |
+          if [ ! -s app/google-services.json ]; then
+            echo "::error::Falta app/google-services.json. Adicione o arquivo baixado do Firebase ao projeto e envie ao GitHub antes de gerar o APK."
+            exit 1
+          fi
+      - name: Configurar Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Compilar APK de teste
+        run: gradle --no-daemon assembleDebug
+      - name: Publicar APK como artefato
+        uses: actions/upload-artifact@v4
+        with:
+          name: Barba-Marcada-APK-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error

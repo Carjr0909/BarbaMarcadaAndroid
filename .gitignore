@@ -1,0 +1,9 @@
+# Artefatos de compilação
+.gradle/
+**/build/
+local.properties
+
+# Chaves privadas: nunca versionar
+*.jks
+*.keystore
+**/firebase-service-account.json

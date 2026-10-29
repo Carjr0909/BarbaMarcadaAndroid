@@ -1,0 +1,28 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.barbamarcada.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.barbamarcada.app'
+        minSdk 24
+        targetSdk 34
+        versionCode 6
+        versionName '1.3.3'
+    }
+}
+
+
+// Não permitir uma compilação aparentemente bem-sucedida sem Firebase: isso gera um APK
+// que mostra o botão de teste, mas nunca consegue registrar o dispositivo.
+if (!file('google-services.json').isFile()) {
+    throw new GradleException('Falta app/google-services.json. Baixe o arquivo no Firebase Console, coloque-o em BarbaMarcadaAndroid/app/ e envie-o ao repositório antes de compilar.')
+}
+apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:35.1.0')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'androidx.core:core:1.16.0'
+}
