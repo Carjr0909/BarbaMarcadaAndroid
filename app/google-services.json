@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "697589992178",
+    "project_id": "barba-marcada-26a19",
+    "storage_bucket": "barba-marcada-26a19.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697589992178:android:390307077e04b5000bde6b",
+        "android_client_info": {
+          "package_name": "com.barbamarcada.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697589992178-o2h642e7q4dfn8lql7ibbspqo9ned87o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByBXXq502JnFQ2muchG3a9YccD16Hriv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697589992178-o2h642e7q4dfn8lql7ibbspqo9ned87o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
